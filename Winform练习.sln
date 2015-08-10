@@ -1,0 +1,112 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winform基本练习1窗口相互呼叫", "winform基本练习1\winform基本练习1窗口相互呼叫.csproj", "{AE20D017-8E68-4708-AB8C-953E67D217CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "控件坐标练习", "控件坐标练习\控件坐标练习.csproj", "{86E2D270-483E-4B47-B524-DEE1204F9D5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "跑马灯 timer", "跑马灯 timer\跑马灯 timer.csproj", "{64000D93-DF54-4298-8255-F1B518D575E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "简单闹钟", "简单闹钟\简单闹钟.csproj", "{6DEF2441-4B04-4EA6-99B5-753CD231AE1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "简单记事本", "简单记事本\简单记事本.csproj", "{7E707D61-91BB-4AD4-BE92-B2A1208F9B57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "多选和单选控件", "多选和单选控件\多选和单选控件.csproj", "{56BF3E85-C2AB-40DA-977F-17D76EADCDBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDI窗体设计", "MDI窗体设计\MDI窗体设计.csproj", "{E15BB366-7DE0-48A4-AD1D-DF39D0499DDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "自动切换图片浏览器", "自动切换图片浏览器\自动切换图片浏览器.csproj", "{4AB209A1-5508-4466-91CE-F6B0E5E6094E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "简单图片浏览器", "简单图片浏览器\简单图片浏览器.csproj", "{8B5AFDA7-5D5E-4DD8-B4FB-DADFEBACC08C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "读取目录下所有文件路径(包括子目录)", "读取目录下所有文件路径(包括子目录)\读取目录下所有文件路径(包括子目录).csproj", "{3841E92F-56E1-4D0A-8AA9-CEF96CC65697}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBrowser练习", "WebBrowser练习\WebBrowser练习.csproj", "{2F09C108-8520-45F7-9D70-04EA0B67EF8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "下拉组合框comboBox 日期选择器", "下拉框comboBox 日期选择器\下拉组合框comboBox 日期选择器.csproj", "{7F9824AB-66FE-48B2-95CD-660D61246EA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListBox 列表", "ListBox\ListBox 列表.csproj", "{36C3D460-00E0-45CF-A62B-6529803EEFEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "普通记事本 有很多问题 打开文件不自动清空", "普通记事本\普通记事本 有很多问题 打开文件不自动清空.csproj", "{9515F34C-4C01-4A0D-BDA8-1C613BDE9EE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winform猜大小游戏", "winform猜大小\winform猜大小游戏.csproj", "{3C1532A6-9A28-4D3E-AC05-BEDF8DAD4181}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "简单验证码", "简单验证码\简单验证码.csproj", "{5B12D946-646A-43DD-A77C-97C40B526E42}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE20D017-8E68-4708-AB8C-953E67D217CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE20D017-8E68-4708-AB8C-953E67D217CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE20D017-8E68-4708-AB8C-953E67D217CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE20D017-8E68-4708-AB8C-953E67D217CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86E2D270-483E-4B47-B524-DEE1204F9D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E2D270-483E-4B47-B524-DEE1204F9D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E2D270-483E-4B47-B524-DEE1204F9D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86E2D270-483E-4B47-B524-DEE1204F9D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64000D93-DF54-4298-8255-F1B518D575E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64000D93-DF54-4298-8255-F1B518D575E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64000D93-DF54-4298-8255-F1B518D575E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64000D93-DF54-4298-8255-F1B518D575E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DEF2441-4B04-4EA6-99B5-753CD231AE1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DEF2441-4B04-4EA6-99B5-753CD231AE1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DEF2441-4B04-4EA6-99B5-753CD231AE1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DEF2441-4B04-4EA6-99B5-753CD231AE1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E707D61-91BB-4AD4-BE92-B2A1208F9B57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E707D61-91BB-4AD4-BE92-B2A1208F9B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E707D61-91BB-4AD4-BE92-B2A1208F9B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E707D61-91BB-4AD4-BE92-B2A1208F9B57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56BF3E85-C2AB-40DA-977F-17D76EADCDBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56BF3E85-C2AB-40DA-977F-17D76EADCDBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56BF3E85-C2AB-40DA-977F-17D76EADCDBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56BF3E85-C2AB-40DA-977F-17D76EADCDBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E15BB366-7DE0-48A4-AD1D-DF39D0499DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E15BB366-7DE0-48A4-AD1D-DF39D0499DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E15BB366-7DE0-48A4-AD1D-DF39D0499DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E15BB366-7DE0-48A4-AD1D-DF39D0499DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AB209A1-5508-4466-91CE-F6B0E5E6094E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AB209A1-5508-4466-91CE-F6B0E5E6094E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AB209A1-5508-4466-91CE-F6B0E5E6094E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AB209A1-5508-4466-91CE-F6B0E5E6094E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B5AFDA7-5D5E-4DD8-B4FB-DADFEBACC08C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5AFDA7-5D5E-4DD8-B4FB-DADFEBACC08C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5AFDA7-5D5E-4DD8-B4FB-DADFEBACC08C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B5AFDA7-5D5E-4DD8-B4FB-DADFEBACC08C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3841E92F-56E1-4D0A-8AA9-CEF96CC65697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3841E92F-56E1-4D0A-8AA9-CEF96CC65697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3841E92F-56E1-4D0A-8AA9-CEF96CC65697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3841E92F-56E1-4D0A-8AA9-CEF96CC65697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F09C108-8520-45F7-9D70-04EA0B67EF8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F09C108-8520-45F7-9D70-04EA0B67EF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F09C108-8520-45F7-9D70-04EA0B67EF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F09C108-8520-45F7-9D70-04EA0B67EF8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F9824AB-66FE-48B2-95CD-660D61246EA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F9824AB-66FE-48B2-95CD-660D61246EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F9824AB-66FE-48B2-95CD-660D61246EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F9824AB-66FE-48B2-95CD-660D61246EA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36C3D460-00E0-45CF-A62B-6529803EEFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36C3D460-00E0-45CF-A62B-6529803EEFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36C3D460-00E0-45CF-A62B-6529803EEFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36C3D460-00E0-45CF-A62B-6529803EEFEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9515F34C-4C01-4A0D-BDA8-1C613BDE9EE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9515F34C-4C01-4A0D-BDA8-1C613BDE9EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9515F34C-4C01-4A0D-BDA8-1C613BDE9EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9515F34C-4C01-4A0D-BDA8-1C613BDE9EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C1532A6-9A28-4D3E-AC05-BEDF8DAD4181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1532A6-9A28-4D3E-AC05-BEDF8DAD4181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1532A6-9A28-4D3E-AC05-BEDF8DAD4181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1532A6-9A28-4D3E-AC05-BEDF8DAD4181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B12D946-646A-43DD-A77C-97C40B526E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B12D946-646A-43DD-A77C-97C40B526E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B12D946-646A-43DD-A77C-97C40B526E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B12D946-646A-43DD-A77C-97C40B526E42}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
