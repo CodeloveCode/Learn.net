@@ -33,7 +33,7 @@
             // 
             // bt窗体1
             // 
-            this.bt窗体1.Location = new System.Drawing.Point(96, 168);
+            this.bt窗体1.Location = new System.Drawing.Point(73, 165);
             this.bt窗体1.Name = "bt窗体1";
             this.bt窗体1.Size = new System.Drawing.Size(136, 23);
             this.bt窗体1.TabIndex = 0;

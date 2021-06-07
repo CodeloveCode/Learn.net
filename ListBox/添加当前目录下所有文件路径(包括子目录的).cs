@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace 读取目录下所有文件路径_包括子目录_
+namespace io_directory_manitulate
 {
     public static class Pat添加当前目录下所有文件路径_包括子目录的_
     {
