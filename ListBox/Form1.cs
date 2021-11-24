@@ -13,9 +13,14 @@ namespace ListBox
 {
     public partial class Form1 : Form
     {
+        List<string> path目录所有文件;
         public Form1()
         {
             InitializeComponent();
+
+            String pictureFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            //存放给定目录的所有文件路径
+            path目录所有文件 = Pat添加当前目录下所有文件路径_包括子目录的_.Path添加当前目录下所有文件路径(pictureFolderPath);
         }
         /// <summary>
         /// 窗体载入时,载入初始文件列表
@@ -24,16 +29,14 @@ namespace ListBox
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
- 
-            
+
+
             //给listbox加载集合元素
             foreach (string paths in path目录所有文件)
             {
                 listBox列表.Items.Add(Path.GetFileName(paths));
             }
         }
-        //存放给定目录的所有文件路径
-        List<string> path目录所有文件 = Pat添加当前目录下所有文件路径_包括子目录的_.Path添加当前目录下所有文件路径(@"C:\Users\mudking\Pictures");
 
         private void listBox列表_SelectedIndexChanged(object sender, EventArgs e)
         {

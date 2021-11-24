@@ -12,8 +12,8 @@ namespace io_directory_manitulate
     {
         static void Main(string[] args)
         {
-            string s = @"C:\Users\mudking\Pictures";
-            List<string> paths = FileUtils.getFilesInDirectory(s);
+            String pictureFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            List<string> paths = FileUtils.getFilesInDirectory(pictureFolderPath);
             foreach (var item in paths)
             {
                 Console.WriteLine(item);
