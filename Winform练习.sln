@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.22823.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winform基本练习1窗口相互呼叫", "winform基本练习1\winform基本练习1窗口相互呼叫.csproj", "{AE20D017-8E68-4708-AB8C-953E67D217CD}"
 EndProject
@@ -34,6 +34,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winform猜大小游戏", "winform猜大小\winform猜大小游戏.csproj", "{3C1532A6-9A28-4D3E-AC05-BEDF8DAD4181}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "简单验证码", "简单验证码\简单验证码.csproj", "{5B12D946-646A-43DD-A77C-97C40B526E42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hosts-editor", "hosts-editor\hosts-editor.csproj", "{1A33F863-883A-4CB4-9449-2D065304F206}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,8 +107,15 @@ Global
 		{5B12D946-646A-43DD-A77C-97C40B526E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B12D946-646A-43DD-A77C-97C40B526E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B12D946-646A-43DD-A77C-97C40B526E42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A33F863-883A-4CB4-9449-2D065304F206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A33F863-883A-4CB4-9449-2D065304F206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A33F863-883A-4CB4-9449-2D065304F206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A33F863-883A-4CB4-9449-2D065304F206}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E8044BC-C008-4947-A37A-3380EB7D31A9}
 	EndGlobalSection
 EndGlobal
