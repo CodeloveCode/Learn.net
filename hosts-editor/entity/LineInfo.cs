@@ -9,18 +9,33 @@ namespace hosts_editor.entity
     /// <summary>
     /// 存放从文本文件读取到的每行的行号和内容.
     /// </summary>
-    internal class LineInfo
+    public class LineInfo
     {
-        int lineNumber;
-        string content;
+        public int LineNumber { get; set; }
+        public string OriginContent { get; set; }
+        public string Ip { get; set; }
+        // 这个自动属性相当于:
+        //  public string host;
+        // public string Host { get => host; set => host = value; }
+        public string Host { get; set; }
 
-        public int LineNumber { get => lineNumber; set => lineNumber = value; }
-        public string Content { get => content; set => content = value; }
-
-        public LineInfo(int lineNumber, string content)
+        public LineInfo(int lineNumber, string originContent, string ip, string host)
         {
-            this.lineNumber = lineNumber;
-            this.content = content;
+            LineNumber = lineNumber;
+            OriginContent = originContent;
+            Ip = ip;
+            Host = host;
+        }
+
+        public LineInfo(int lineNumber, string originContent)
+        {
+            LineNumber = lineNumber;
+            OriginContent = originContent;
+        }
+
+        public override string ToString()
+        {
+            return $"lineNO:{LineNumber},ip:{Ip},host:{Host},originContent:{OriginContent}";
         }
     }
 }

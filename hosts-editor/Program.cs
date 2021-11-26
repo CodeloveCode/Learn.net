@@ -14,11 +14,14 @@ namespace hosts_editor
         [STAThread]
         static void Main()
         {
-            requestAdministratorAuthority();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+            //requestAdministratorAuthority();
         }
 
         /// <summary>
-        /// 检查当前用户权限,如果不是管理员,则请求以管理员身份运行.
+        /// 检查当前用户权限,如果不是管理员,则请求以管理员权限重新运行本程序.
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
         private static void requestAdministratorAuthority()
@@ -36,12 +39,20 @@ namespace hosts_editor
             }
             else
             {
-                System.Diagnostics.ProcessStartInfo processStartInfo = new System.Diagnostics.ProcessStartInfo();
-                processStartInfo.FileName = System.Windows.Forms.Application.ExecutablePath;
-                processStartInfo.Arguments = "";
-                processStartInfo.Verb = "runas";
-                System.Diagnostics.Process.Start(processStartInfo);
-                System.Windows.Forms.Application.Exit();
+                // 否则请求管理员权限后重启本程序
+                System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo();
+                psi.FileName = Application.ExecutablePath;
+                //processStartInfo.Arguments = "";
+                psi.Verb = "runas";
+                try
+                {
+                    System.Diagnostics.Process.Start(psi);
+                    Application.Exit();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
         }
     }

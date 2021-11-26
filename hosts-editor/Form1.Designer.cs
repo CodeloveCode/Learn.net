@@ -1,4 +1,6 @@
-﻿namespace hosts_editor
+﻿using System.Windows.Forms;
+
+namespace hosts_editor
 {
     partial class Form1
     {
@@ -29,14 +31,18 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.listBox = new System.Windows.Forms.ListBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnRead = new System.Windows.Forms.Button();
+            this.lineNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ip = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.host = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.originContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -47,53 +53,78 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.listBox);
+            this.splitContainer1.Panel1.Controls.Add(this.dataGridView);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.btnDelete);
-            this.splitContainer1.Panel2.Controls.Add(this.btnEdit);
-            this.splitContainer1.Panel2.Controls.Add(this.btnNew);
+            this.splitContainer1.Panel2.Controls.Add(this.btnSave);
+            this.splitContainer1.Panel2.Controls.Add(this.btnRead);
             this.splitContainer1.Size = new System.Drawing.Size(704, 450);
             this.splitContainer1.SplitterDistance = 552;
             this.splitContainer1.TabIndex = 0;
             // 
-            // listBox
+            // dataGridView
             // 
-            this.listBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.listBox.FormattingEnabled = true;
-            this.listBox.ItemHeight = 12;
-            this.listBox.Location = new System.Drawing.Point(0, 0);
-            this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(552, 448);
-            this.listBox.TabIndex = 0;
+            this.dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.lineNumber,
+            this.ip,
+            this.host,
+            this.originContent});
+            this.dataGridView.Location = new System.Drawing.Point(3, 0);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowTemplate.Height = 23;
+            this.dataGridView.Size = new System.Drawing.Size(546, 450);
+            this.dataGridView.TabIndex = 0;
             // 
-            // btnDelete
+            // btnSave
             // 
-            this.btnDelete.Location = new System.Drawing.Point(33, 112);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "删除";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(33, 59);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "保存";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnEdit
+            // btnRead
             // 
-            this.btnEdit.Location = new System.Drawing.Point(33, 59);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "编辑";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnRead.Location = new System.Drawing.Point(33, 13);
+            this.btnRead.Name = "btnRead";
+            this.btnRead.Size = new System.Drawing.Size(75, 23);
+            this.btnRead.TabIndex = 0;
+            this.btnRead.Text = "加载";
+            this.btnRead.UseVisualStyleBackColor = true;
+            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
             // 
-            // btnNew
+            // lineNumber
             // 
-            this.btnNew.Location = new System.Drawing.Point(33, 13);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(75, 23);
-            this.btnNew.TabIndex = 0;
-            this.btnNew.Text = "新建";
-            this.btnNew.UseVisualStyleBackColor = true;
+            this.lineNumber.DataPropertyName = "lineNumber";
+            this.lineNumber.HeaderText = "行号";
+            this.lineNumber.Name = "lineNumber";
+            this.lineNumber.Visible = false;
+            // 
+            // ip
+            // 
+            this.ip.DataPropertyName = "ip";
+            this.ip.HeaderText = "ip";
+            this.ip.Name = "ip";
+            this.ip.Width = 168;
+            // 
+            // host
+            // 
+            this.host.DataPropertyName = "host";
+            this.host.HeaderText = "host";
+            this.host.Name = "host";
+            this.host.Width = 272;
+            // 
+            // originContent
+            // 
+            this.originContent.DataPropertyName = "originContent";
+            this.originContent.HeaderText = "原始文本";
+            this.originContent.Name = "originContent";
+            this.originContent.Visible = false;
             // 
             // Form1
             // 
@@ -107,6 +138,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -114,10 +146,13 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ListBox listBox;
-        private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnRead;
+        private System.Windows.Forms.Button btnSave;
+        private DataGridView dataGridView;
+        private DataGridViewTextBoxColumn lineNumber;
+        private DataGridViewTextBoxColumn ip;
+        private DataGridViewTextBoxColumn host;
+        private DataGridViewTextBoxColumn originContent;
     }
 }
 

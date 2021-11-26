@@ -1,0 +1,15 @@
+﻿DataGridView--代码绑定DataSet,IList,DataTable,SqlDataReader
+https://www.cnblogs.com/yieryi/p/4610790.html
+C# 中DataGridView 绑定List<T>做数据源的操作问题
+https://www.cnblogs.com/sxypeace/p/5640647.html
+若想将 List<T>作为DataGridView的数据源，然后后续还想继续操作的话，需要将List<T>赋值给BindingList对象，
+
+DataGridView是DataGrid的升级版,现在不建议使用DataGrid.
+
+然后直接将BindingList赋值给DataGridView.DataSource, 如此直接操作BindingList对象时，DataGridView的结果会动态随之更新。
+DataGridView 控件（Windows 窗体）
+https://docs.microsoft.com/zh-cn/dotnet/desktop/winforms/controls/datagridview-control-windows-forms?view=netframeworkdesktop-4.8
+创建支持简单数据绑定的 Windows 窗体用户控件
+https://docs.microsoft.com/zh-cn/visualstudio/data-tools/bind-controls-to-data-in-visual-studio?view=vs-2022
+在设计Windows开发窗体控件
+https://docs.microsoft.com/zh-cn/dotnet/desktop/winforms/controls/developing-windows-forms-controls-at-design-time?view=netframeworkdesktop-4.8

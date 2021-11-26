@@ -37,6 +37,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "简单验证码", "简单�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hosts-editor", "hosts-editor\hosts-editor.csproj", "{1A33F863-883A-4CB4-9449-2D065304F206}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{31DAAB56-934D-4BF4-918F-3B0D15982206}"
+	ProjectSection(SolutionItems) = preProject
+		hosts-editor\README.md = hosts-editor\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
