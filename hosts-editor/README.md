@@ -110,7 +110,8 @@ public class FileDetail
 
 如何验证一个系统文件的编码,使用记事本打开,另存,下面会显示保存的编码,这个与文件编码是一致的.
 
-C# DataGridView添加新行的2个方法
+C# DataGridView添加新行的2个方法.(如果其DataSource绑定了数据源,则这两种办法都无用)
+手动添加的方式,目前只适用于所有Rows都是手动添加进去的,才行.
 https://www.cnblogs.com/allan5204/p/4113080.html
 ```c#
 // 利用dataGridView1.Rows.Add()事件为DataGridView控件增加新的行，该函数返回添加新行的索引号，即新行的行号，然后可以通过该索引号操作该行的各个单元格
@@ -130,3 +131,10 @@ DataGridViewComboBoxCell comboxcell = new DataGridViewComboBoxCell();
 row.Cells.Add(comboxcell);
 dataGridView1.Rows.Add(row);
 ```
+
+根据功能列出的 Windows 窗体控件
+https://docs.microsoft.com/zh-cn/dotnet/desktop/winforms/controls/windows-forms-controls-by-function?view=netframeworkdesktop-4.8
+
+ 如果希望使用DataGridView的自动创建新行功能(数据列表最后一行默认是一个空的新行),
+            则必须设置它和其数据源都允许添加.
+            this.dataGridView.AllowUserToAddRows = true;bindingList.AllowNew = true;
