@@ -32,12 +32,6 @@ namespace hosts_editor.entity
             LineNumber = lineNumber;
             OriginContent = originContent;
         }
-        /// <summary>
-        /// 为DataGridView自动创建新行,提供一个空构造函数.
-        /// </summary>
-        public LineInfo()
-        {
-        }
 
         public override string ToString()
         {

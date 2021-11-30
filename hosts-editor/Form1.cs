@@ -15,12 +15,9 @@ namespace hosts_editor
 {
     public partial class Form1 : Form
     {
-        const string HOST_PATH = @"C:\Windows\System32\drivers\etc\hosts";
-        // 必须永远根据行号升序排序,否则添加新行和换行时会出现问题.
         private List<LineInfo> lines;
-        //private List<LineInfo> editableLines;
-        private BindingList<LineInfo> bindingList;
-
+        private List<LineInfo> editableLines;
+        const string HOST_PATH = @"C:\Windows\System32\drivers\etc\hosts";
 
         public Form1()
         {
@@ -51,20 +48,11 @@ namespace hosts_editor
             this.dataGridView.DataError += new DataGridViewDataErrorEventHandler(dataGridView_DataError);
             // 某个单元格停止编辑时.
             //this.dataGridView.CellEndEdit += new DataGridViewCellEventHandler(dataGridView1_CellEndEdit);
-            // 用户在新行中输入任意一个字符时,才真正创建新行.
-            //this.dataGridView.RowsAdded += new DataGridViewRowsAddedEventHandler(dataGridView1_RowsAdded);
-            // 用户在新行中输入任意一个字符时,才真正创建新行.
-            //this.dataGridView.UserAddedRow += new DataGridViewRowEventHandler(dataGridView1_UserAddedRow);
-            // 为 Windows 窗体 DataGridView 控件中的新行指定默认值
-            this.dataGridView.DefaultValuesNeeded += new DataGridViewRowEventHandler(dataGridView_DefaultValuesNeeded);
         }
+        //void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        //{
 
-        // 为新行添加行号.
-        private void dataGridView_DefaultValuesNeeded(object sender, System.Windows.Forms.DataGridViewRowEventArgs e)
-        {
-            this.lines.Add(new LineInfo(this.lines.Last().LineNumber + 1, ""));
-            e.Row.Cells[0].Value = this.lines.Last().LineNumber;
-        }
+        //}
 
         private void dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
@@ -93,7 +81,7 @@ namespace hosts_editor
             }
 
             // 将有效内容组装成dataGridView需要的数据源.
-            List<LineInfo> editableLines = lines.FindAll(x => !string.IsNullOrEmpty(x.OriginContent) && !x.OriginContent.StartsWith("#"));
+            editableLines = lines.FindAll(x => !string.IsNullOrEmpty(x.OriginContent) && !x.OriginContent.StartsWith("#"));
 
             Regex regex = new Regex(@"\s");
             foreach (LineInfo lineInfo in editableLines)
@@ -104,11 +92,7 @@ namespace hosts_editor
             }
 
             // 为dataGridView设置数据源
-            bindingList = new BindingList<LineInfo>(editableLines);// BindingList可自动解决许多数据绑定问题
-            Console.WriteLine(bindingList.AllowNew);
-            Console.WriteLine(bindingList.AllowEdit);
-            Console.WriteLine(bindingList.AllowRemove);
-            bindingList.AllowNew = true;
+            BindingList<LineInfo> bindingList = new BindingList<LineInfo>(editableLines);// BindingList可自动解决许多数据绑定问题
             // Bind BindingList directly to the DataGrid, no need of BindingSource
             this.dataGridView.DataSource = bindingList;
         }
@@ -118,30 +102,19 @@ namespace hosts_editor
         {
             //BindingList<LineInfo> dataSource = (BindingList<LineInfo>)dataGridView.DataSource;
 
-            List<LineInfo> editedlineInfos = this.bindingList.ToList();
-
             // 使用editableLines更新存放原始host文件内容的lines.
             // 将lines逐行写入hosts文件.
-            foreach (var sourceLine in this.lines)
+            foreach (var line in this.lines)
             {
-                LineInfo foundLine = editedlineInfos.Find(item => item.LineNumber == sourceLine.LineNumber);
-                if (foundLine != null && !string.IsNullOrWhiteSpace(foundLine.Ip) && !string.IsNullOrWhiteSpace(foundLine.Host))
+                LineInfo lineInfo = this.editableLines.Find(item => item.LineNumber == line.LineNumber);
+                if (lineInfo != null)
                 {
-                    sourceLine.Ip = foundLine.Ip;
-                    sourceLine.Host = foundLine.Host;
-                    sourceLine.OriginContent = foundLine.Ip + "\u0020" + foundLine.Host;
+                    line.OriginContent = lineInfo.Ip + "\u0020" + lineInfo.Host;
                 }
             }
-            // 清除无效数据.
-            //List<LineInfo> finalLines = this.lines.Where(line =>
-            //{
-            //    var result = !string.IsNullOrWhiteSpace(line.Ip)
-            //    && !string.IsNullOrWhiteSpace(line.Host)
-            //     && !string.IsNullOrWhiteSpace(line.OriginContent);
-            //    return result;
-            //}).ToList();
-            //finalLines.ForEach(line => Console.WriteLine(line));
+            //this.lines.ForEach(line => Console.WriteLine(line));
 
+            //FileStream fileStream = new FileStream(@"C:\Windows\System32\drivers\etc\hosts", FileMode.Open, FileAccess.Write, FileShare.Write);
             // 指定写入时覆盖.
             StreamWriter streamWriter = new StreamWriter(HOST_PATH, false, Encoding.UTF8);
             this.lines.ForEach(line => streamWriter.WriteLine(line.OriginContent));
