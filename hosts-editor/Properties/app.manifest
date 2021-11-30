@@ -18,8 +18,12 @@
         <requestedExecutionLevel level="requireAdministrator" uiAccess="false" />
       </requestedPrivileges>
       <applicationRequestMinimum>
-        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
-        <defaultAssemblyRequest permissionSetReference="Custom" />
+        <!--指定当前默认的请求权限集-->
+        <defaultAssemblyRequest permissionSetReference="FullTrust" />
+        <!--FullTrust 安全区域内可用的默认权限. 如: 本地安装的应用-->
+        <!-- LocalIntranet 安全区域内可用的默认权限-->
+        <!-- Internet 安全区域内可用的默认权限-->
+        <PermissionSet ID="FullTrust" SameSite="site" />
       </applicationRequestMinimum>
     </security>
   </trustInfo>

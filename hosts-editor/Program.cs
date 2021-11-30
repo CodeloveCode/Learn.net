@@ -41,18 +41,21 @@ namespace hosts_editor
             {
                 // 否则请求管理员权限后重启本程序
                 System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo();
+                psi.UseShellExecute = true;
+                psi.WorkingDirectory = Environment.CurrentDirectory;
                 psi.FileName = Application.ExecutablePath;
                 //processStartInfo.Arguments = "";
                 psi.Verb = "runas";
                 try
                 {
                     System.Diagnostics.Process.Start(psi);
-                    Application.Exit();
                 }
                 catch (Exception e)
                 {
                     MessageBox.Show(e.Message);
+                    return;
                 }
+                Application.Exit();
             }
         }
     }
