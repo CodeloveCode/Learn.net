@@ -147,44 +147,6 @@ namespace hosts_editor
             this.lines.ForEach(line => streamWriter.WriteLine(line.OriginContent));
             streamWriter.Flush();
             streamWriter.Close();
-
-            // TODO::新增行,删除行. 注意要观察lines.
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            // 尝试使用编程方式,手动添加一行.
-            // 报错: 当控件被数据绑定时，无法以编程方式向 DataGridView 的行集合中添加行.
-            // 尝试 手动往绑定的editableLines里添加数据,也不行,DataGridView没有变化.
-            // 尝试 给bindingList直接塞一笔新数据,失败.  报错: 未将对象引用设置到对象的实例。”
-            //int index = this.dataGridView.Rows.Add();
-            //this.dataGridView.Rows[index].Selected = true;
-
-            /*
-             如果希望使用DataGridView的自动创建新行功能(数据列表最后一行默认是一个空的新行),
-            则必须设置它和其数据源都允许添加.
-            this.dataGridView.AllowUserToAddRows = true;bindingList.AllowNew = true;
-             */
-
-            this.bindingList.ToList().ForEach(line => Console.WriteLine(line));
-        }
-
-        private void BtnDelete_Click(object sender, EventArgs e)
-        {
-            if (this.dataGridView.SelectedRows.Count > 0 &&
-                this.dataGridView.SelectedRows[0].Index !=
-                this.dataGridView.Rows.Count - 1)
-            {
-                var selectedLineNumber = (int)this.dataGridView.SelectedRows[0].Cells["LineNumber"].Value;
-                int selectedRowIdx = this.dataGridView.SelectedRows[0].Index;
-
-                this.dataGridView.Rows.RemoveAt(selectedRowIdx);
-                this.lines.RemoveAll(line => line.LineNumber == selectedLineNumber);
-            }
-            else
-            {
-                MessageBox.Show("请先选中一行(点左边的箭头");
-            }
         }
     }
 }
