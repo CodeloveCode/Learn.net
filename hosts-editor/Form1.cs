@@ -105,10 +105,8 @@ namespace hosts_editor
 
             // 为dataGridView设置数据源
             bindingList = new BindingList<LineInfo>(editableLines);// BindingList可自动解决许多数据绑定问题
-            Console.WriteLine(bindingList.AllowNew);
-            Console.WriteLine(bindingList.AllowEdit);
-            Console.WriteLine(bindingList.AllowRemove);
-            bindingList.AllowNew = true;
+            bindingList.AllowNew = true; // 只有DataGridView和BindingList同时允许添加,用户在UI上才能看到新行.
+
             // Bind BindingList directly to the DataGrid, no need of BindingSource
             this.dataGridView.DataSource = bindingList;
         }
