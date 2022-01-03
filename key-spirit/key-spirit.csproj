@@ -88,6 +88,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils\BackgroundKeyUtils.cs" />
     <Compile Include="utils\BkgndMouse.cs" />
+    <Compile Include="utils\KeyHelper.cs" />
+    <Compile Include="utils\VirtualKeyStruct.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +118,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="utils\RandomUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\winForm读写配置文件\winForm读写配置文件.csproj">
+      <Project>{0eda956c-f9cc-40ee-aa1c-71945bc2326d}</Project>
+      <Name>winForm读写配置文件</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

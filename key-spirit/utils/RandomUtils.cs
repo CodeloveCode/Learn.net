@@ -10,7 +10,7 @@ namespace key_spirit.utils
          * @param start
          * @param end
          */
-        public static long randomLongBetweenRange(long start, long end)
+        public static long LongBetweenRange(long start, long end)
         {
             Random random = new Random();
             var d = random.NextDouble();
@@ -23,7 +23,7 @@ namespace key_spirit.utils
          * @param start
          * @param end
          */
-        public static int randomIntBetweenRange(int start, int end)
+        public static int IntBetweenRange(int start, int end)
         {
             Random random = new Random();
             var d = random.NextDouble();

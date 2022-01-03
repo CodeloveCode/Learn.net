@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PInvoke;
+using static PInvoke.User32;
 using System.Threading;
 
 namespace key_spirit.utils
@@ -18,6 +19,8 @@ namespace key_spirit.utils
 
         /**
          * 向指定窗口发送(非系统)按键消息.
+         * System.Windows.Forms. Keys Enum
+         * https://docs.microsoft.com/zh-cn/dotnet/api/system.windows.forms.keys?view=windowsdesktop-6.0
          * 按键消息.
          * https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-keydown
          * windows 虚拟键码
@@ -28,14 +31,14 @@ namespace key_spirit.utils
          * @param hWnd           窗口句柄.
          * @param virtualKeyCode 虚拟键码. 可以使用java.awt.event.KeyEvent类中的常量.
          */
-        public static void keyDown(IntPtr hWnd, int virtualKeyCode)
+        public static void keyDown(IntPtr hWnd, VirtualKey virtualKeyCode)
         {
             // TODO:判断hWnd不能为空
             // TODO:判断virtualKeyCode须是非系统按键.
             //        int virtualKeyCode = keyEvent;
 
             User32.WindowMessage msg = User32.WindowMessage.WM_KEYDOWN;
-            int* wParam = &virtualKeyCode; // 对于WM_KEYDOWN消息. wParam就是 virtual-key code of the nonsystem key.
+            int* wParam = (int*)&virtualKeyCode; // 对于WM_KEYDOWN消息. wParam就是 virtual-key code of the nonsystem key.
             int* lParam = makeLparamForKeydown(virtualKeyCode);
             User32.PostMessage(hWnd, msg, wParam, lParam);
         }
@@ -52,7 +55,7 @@ namespace key_spirit.utils
          * @param hWnd           窗口句柄.
          * @param virtualKeyCode 虚拟键码. 可以使用java.awt.event.KeyEvent类中的常量.
          */
-        public static void keyUp(IntPtr hWnd, int virtualKeyCode)
+        public static void keyUp(IntPtr hWnd, VirtualKey virtualKeyCode)
         {
             // TODO:判断hWnd不能为空
             // TODO:判断virtualKeyCode须是非系统按键.
@@ -61,7 +64,7 @@ namespace key_spirit.utils
             //int msg = KeyboardInputNotifications.WM_KEYUP;
 
             // 对于WM_KEYDOWN消息. wParam就是 virtual-key code of the nonsystem key.
-            int* wParam = &virtualKeyCode;
+            int* wParam = (int*)&virtualKeyCode;
 
             int* lParam = makeLparamForKeyup(virtualKeyCode);
 
@@ -82,14 +85,14 @@ namespace key_spirit.utils
         }
 
         // 击键消息. https://docs.microsoft.com/en-us/windows/win32/inputdev/about-keyboard-input#keystroke-message-flags
-        public static unsafe int* makeLparamForKeydown(int virtualKeyCode)
+        public static unsafe int* makeLparamForKeydown(VirtualKey virtualKeyCode)
         {
             // The repeat count, scan code, extended-key flag, context code, previous key-state flag, and transition-state flag, as shown following.
             int* lParam = null;
             // 0-15
             short repeatCount = 0b1;
             // 16-
-            int scanCode = User32.MapVirtualKey(virtualKeyCode, User32.MapVirtualKeyTranslation.MAPVK_VK_TO_VSC);
+            int scanCode = User32.MapVirtualKey((int)virtualKeyCode, User32.MapVirtualKeyTranslation.MAPVK_VK_TO_VSC);
             //int scanCode = User32.MapVirtualKeyEx(virtualKeyCode, MapType.MAPVK_VK_TO_VSC.ordinal(), null);
             // 24. Indicates whether the key is an extended key, such as the right-hand ALT and CTRL keys that appear on an enhanced 101- or 102-key keyboard. The value is 1 if it is an extended key; otherwise, it is 0.
             int isExtendKey = 0b0;
@@ -113,13 +116,13 @@ namespace key_spirit.utils
         }
 
 
-        public static int* makeLparamForKeyup(int virtualKeyCode)
+        public static int* makeLparamForKeyup(VirtualKey virtualKeyCode)
         {
             int* lParam = null; // The repeat count, scan code, extended-key flag, context code, previous key-state flag, and transition-state flag, as shown following.
                                 // 0-15
             short repeatCount = 0b1;
             // 16-23
-            int scanCode = User32.MapVirtualKey(virtualKeyCode, User32.MapVirtualKeyTranslation.MAPVK_VK_TO_VSC);
+            int scanCode = User32.MapVirtualKey((int)virtualKeyCode, User32.MapVirtualKeyTranslation.MAPVK_VK_TO_VSC);
             // 24. Indicates whether the key is an extended key, such as the right-hand ALT and CTRL keys that appear on an enhanced 101- or 102-key keyboard. The value is 1 if it is an extended key; otherwise, it is 0.
             int isExtendKey = 0b0;
             // 25-28.Reserved; do not use.
@@ -144,12 +147,20 @@ namespace key_spirit.utils
             return lParam;
         }
 
-        public static void keyPress(IntPtr hwnd, int virtualKeyCode)
+        /// <summary>
+        /// 向指定窗口发送按键命令.
+        /// </summary>
+        /// <param name="hwnd"></param>
+        /// <param name="virtualKeyCode">虚拟键码.PInvoke.User32.VirtualKey</param>
+        public static void keyPress(IntPtr hwnd, VirtualKey virtualKeyCode)
         {
             keyDown(hwnd, virtualKeyCode);
-            Thread.Sleep(RandomUtils.randomIntBetweenRange(4, 14));
+            // 随机给一个延迟,模拟人工操作.
+            Thread.Sleep(RandomUtils.IntBetweenRange(4, 14));
             keyUp(hwnd, virtualKeyCode);
         }
+
+
 
     }
 }
