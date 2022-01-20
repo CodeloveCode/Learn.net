@@ -95,7 +95,7 @@ namespace hosts_editor
             // 将有效内容组装成dataGridView需要的数据源.
             List<LineInfo> editableLines = lines.FindAll(x => !string.IsNullOrEmpty(x.OriginContent) && !x.OriginContent.StartsWith("#"));
 
-            Regex regex = new Regex(@"\s");
+            Regex regex = new Regex(@"\s+");
             foreach (LineInfo lineInfo in editableLines)
             {
                 string[] strs = regex.Split(lineInfo.OriginContent);
